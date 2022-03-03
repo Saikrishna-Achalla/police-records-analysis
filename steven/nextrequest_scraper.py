@@ -14,13 +14,14 @@ class NextRequestScraper:
     """
     Scraper scripts for NextRequest request databases. Currently does not scrape all possible documents from each request due to difficulties with navigation bars, but the number of such documents can be recovered from the messages.
     """
-    def __init__(self, driver, url):
+    def __init__(self, driver, url, wait_time=1):
         self.driver = driver if 'webdriver' in str(type(driver)) else webdriver.Firefox()
+        self.driver.implicitly_wait(wait_time)
         self.url = url if ((type(url) == str) and ('nextrequest.com' in url) and ('requests/' in url)) \
             else 'https://lacity.nextrequest.com/requests/'
 
     def scrape(self, requests, earliest_id, requests_name='requests',
-               num_requests=-1, cooldown=1, timeout=10, progress=100):
+               num_requests=-1, timeout=10, progress=100, debug=0):
         """
         Main scraper routine
         TODO: Add better documentation
@@ -34,7 +35,7 @@ class NextRequestScraper:
         # Start by running an initial iteration of the scraper
         self.driver.get(self.url + current_id)
 
-        # Print iteration number
+        # Print iteration number. TODO: Replace with file write
         it_num_title = 'Iteration ' + str(num_its)
         print(it_num_title)
         print('-' * len(it_num_title))
@@ -48,8 +49,8 @@ class NextRequestScraper:
         try:
             self.scrape_requests_sequential(requests,
                                             num_requests=num_requests,
-                                            cooldown=cooldown,
-                                            progress=progress)
+                                            progress=progress,
+                                            debug=debug)
         except KeyboardInterrupt:
             convert_requests_to_csv(requests, requests_name)
             return len(requests)
@@ -73,8 +74,8 @@ class NextRequestScraper:
 
                 self.scrape_requests_sequential(requests,
                                                 num_requests=num_requests,
-                                                cooldown=cooldown,
-                                                progress=progress)
+                                                progress=progress,
+                                                debug=debug)
 
                 num_its += 1
                 sleep(timeout)
@@ -82,13 +83,12 @@ class NextRequestScraper:
                 current_id = requests[-1]['id']
                 self.driver.get(self.url + current_id)
         except KeyboardInterrupt:
-            convert_requests_to_csv(requests, requests_name)
-            return len(requests)
+            pass
 
         convert_requests_to_csv(requests, requests_name)
         return len(requests)
 
-    def scrape_requests_sequential(self, requests, num_requests=-1, cooldown=1, debug=0, progress=0):
+    def scrape_requests_sequential(self, requests, num_requests=-1, progress=0, debug=0):
         """
         Scrapes all records on a NextRequest request database starting from the given ID and
         moving forward chronologically until the number of requests scraped reaches a given
@@ -133,7 +133,6 @@ class NextRequestScraper:
                 self.driver.find_element(By.CLASS_NAME, 'js-next-request')\
                     .click()  # Click on the arrow to navigate to the next request
 
-                sleep(cooldown)  # Cooldown between scraping attempts. TODO: Replace with WebDriverWait
                 if not self.driver.find_elements(By.CLASS_NAME, 'nextrequest'):
                     break
 
@@ -160,7 +159,7 @@ class NextRequestScraper:
         Scrapes data about a given request on a NextRequest request database, appending the result
         to the given list.
         """
-        request_id, status, desc, date, depts, docs, poc, events = [None] * 8  # Initialize variables
+        request_id, status, desc, date, depts, poc, events, docs = [None] * 8  # Initialize variables
         try:  # Attempt to scrape relevant data
             request_id = self.driver.find_element(By.CLASS_NAME, 'request-title-text').text.split()[1][1:]  # Request ID
             status = self.driver.find_element(By.CLASS_NAME, 'request-status-label').text.strip()  # Request status
@@ -168,12 +167,11 @@ class NextRequestScraper:
             desc_row = self.driver.find_element(By.CLASS_NAME, 'request-text')  # Box containing request description
             for desc_read_more in desc_row.find_elements(By.PARTIAL_LINK_TEXT, 'Read more'):  # Expand description if necessary
                 desc_read_more.click()
-            sleep(0.01)  # TODO: Replace with a WebDriverWait
             desc = desc_row.find_element(By.ID, 'request-text').text  # Full request description
-
+            
             date = self.driver.find_element(By.CLASS_NAME, 'request_date').text  # Request date
             depts = self.driver.find_element(By.CLASS_NAME, 'current-department').text  # Department(s) assigned to the request
-            poc = self.driver.find_element(By.CLASS_NAME, 'request-detail').text  # Person of contact
+            poc = self.driver.find_element(By.CLASS_NAME, 'request-detail').text  # Point of contact
 
             # Documents attached to the request, if there are any (CURRENTLY DOES NOT SCRAPE ALL DOCUMENTS)
             doc_list = self.driver.find_element(By.CLASS_NAME, 'document-list')  # Box containing documents
@@ -182,8 +180,7 @@ class NextRequestScraper:
                 folders = doc_list.find_elements(By.CLASS_NAME, 'folder-toggle')
                 for folder in folders:
                     folder.click()
-                sleep(0.01)  # TODO: Replace with a WebDriverWait
-
+                
                 docs_all = doc_list.find_elements(By.CLASS_NAME, 'document-link')
 
                 # TODO: Figure out how to scrape all documents from a request whose folders also have navigation bars
