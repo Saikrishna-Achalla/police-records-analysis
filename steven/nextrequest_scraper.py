@@ -159,7 +159,7 @@ class NextRequestScraper:
         Scrapes data about a given request on a NextRequest request database, appending the result
         to the given list.
         """
-        request_id, status, desc, date, depts, poc, events, docs = [None] * 8  # Initialize variables
+        request_id, status, desc, date, depts, req, fee, poc, events, docs = [None] * 10  # Initialize variables
         try:  # Attempt to scrape relevant data
             request_id = self.driver.find_element(By.CLASS_NAME, 'request-title-text').text.split()[1][1:]  # Request ID
             status = self.driver.find_element(By.CLASS_NAME, 'request-status-label').text.strip()  # Request status
