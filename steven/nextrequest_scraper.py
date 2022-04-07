@@ -47,20 +47,27 @@ class NextRequestScraper:
 
         # Scrape requests until the scraper either reaches the end of the database or times out
         try:
-            self.scrape_requests_sequential(requests,
-                                            num_requests=num_requests,
-                                            progress=progress,
-                                            debug=debug)
+            num_requests -= self.scrape_requests_sequential(requests,
+                                                            num_requests=num_requests,
+                                                            progress=progress,
+                                                            debug=debug)
         except KeyboardInterrupt:
             convert_requests_to_csv(requests, requests_name)
             return len(requests)
 
-        num_its += 1
+        num_its += 1 # Increase iteration count
+        
+        # Stop scraping if number of requests reached
+        if not num_requests:
+            convert_requests_to_csv(requests, requests_name)
+            return len(requests)
+            
         sleep(timeout)  # Wait after the script reaches the end of the database or after a timeout
 
         # Restart the driver at the last request scraped
         current_id = requests[-1]['id']
         self.driver.get(self.url + current_id)
+        num_requests += 1
 
         # Continue to scrape until the scraper reaches the end of the database or times out
         try:
@@ -72,16 +79,21 @@ class NextRequestScraper:
                 print('Starting request:', requests.pop()['id'])
                 print()
 
-                self.scrape_requests_sequential(requests,
-                                                num_requests=num_requests,
-                                                progress=progress,
-                                                debug=debug)
+                num_requests -= self.scrape_requests_sequential(requests,
+                                                                num_requests=num_requests,
+                                                                progress=progress,
+                                                                debug=debug)
 
                 num_its += 1
+                
+                if not num_requests:
+                    break
+                
                 sleep(timeout)
 
                 current_id = requests[-1]['id']
                 self.driver.get(self.url + current_id)
+                num_requests += 1
         except KeyboardInterrupt:
             pass
 
@@ -101,7 +113,7 @@ class NextRequestScraper:
         # Start by scraping the initial record. TO-DO: Add try-except-finally blocks for KeyboardInterrupt errors
 
         # Only scrape a request if it was loaded properly; otherwise, stop the scraper
-        if not self.driver.find_elements(By.CLASS_NAME, 'nextrequest'):
+        if num_requests == 0 or not self.driver.find_elements(By.CLASS_NAME, 'nextrequest'):
             print('No requests scraped')
             return counter
 
@@ -130,8 +142,7 @@ class NextRequestScraper:
         # timeout
         try:
             while self.driver.find_elements(By.CLASS_NAME, 'js-next-request'):
-                self.driver.find_element(By.CLASS_NAME, 'js-next-request')\
-                    .click()  # Click on the arrow to navigate to the next request
+                self.driver.find_element(By.CLASS_NAME, 'js-next-request').click()  # Click on the arrow to navigate to the next request
 
                 if not self.driver.find_elements(By.CLASS_NAME, 'nextrequest'):
                     break
@@ -161,6 +172,9 @@ class NextRequestScraper:
         """
         request_id, status, desc, date, depts, req, fee, poc, events, docs = [None] * 10  # Initialize variables
         try:  # Attempt to scrape relevant data
+            """
+            TODO: Add additional fields such as requester name and fees paid
+            """
             request_id = self.driver.find_element(By.CLASS_NAME, 'request-title-text').text.split()[1][1:]  # Request ID
             status = self.driver.find_element(By.CLASS_NAME, 'request-status-label').text.strip()  # Request status
 
@@ -237,8 +251,7 @@ class NextRequestScraper:
             if debug:
                 print(request_id, 'scraped')
         except:  # If an exception occurs, print the stack trace
-            print('Exception occurred' + (' at count ' + str(counter + 1) if counter >= 0 else '') + ':')
-            traceback.print_exc()
+            print('Exception occurred' + (' at count ' + str(counter + 1) if counter >= 0 else ''))
             print()
         finally:  # Append the request to the list
             requests.append({
