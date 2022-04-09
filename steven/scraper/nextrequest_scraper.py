@@ -7,7 +7,7 @@ import traceback
 from timeit import default_timer as timer
 from time import sleep
 
-from nextrequest_utils import *
+from nextrequest_scraper_utils import *
 
 
 class NextRequestScraper:
@@ -67,17 +67,17 @@ class NextRequestScraper:
         # Restart the driver at the last request scraped
         current_id = requests[-1]['id']
         self.driver.get(self.url + current_id)
-        num_requests += 1
 
         # Continue to scrape until the scraper reaches the end of the database or times out
-        try:
-            while self.driver.find_elements(By.CLASS_NAME, 'js-next-request'):
+        while self.driver.find_elements(By.CLASS_NAME, 'js-next-request'):
+            try:
                 it_num_title = 'Iteration ' + str(num_its)
                 print(it_num_title)
                 print('-' * len(it_num_title))
 
                 print('Starting request:', requests.pop()['id'])
                 print()
+                num_requests += 1
 
                 num_requests -= self.scrape_requests_sequential(requests,
                                                                 num_requests=num_requests,
@@ -93,9 +93,8 @@ class NextRequestScraper:
 
                 current_id = requests[-1]['id']
                 self.driver.get(self.url + current_id)
-                num_requests += 1
-        except KeyboardInterrupt:
-            pass
+            except KeyboardInterrupt:
+                break
 
         convert_requests_to_csv(requests, requests_name)
         return len(requests)
@@ -109,9 +108,7 @@ class NextRequestScraper:
         """
         start = timer()  # Timer for progress checking purposes
         counter = 0  # Keeps track of how many requests have been scraped
-
-        # Start by scraping the initial record. TO-DO: Add try-except-finally blocks for KeyboardInterrupt errors
-
+        
         # Only scrape a request if it was loaded properly; otherwise, stop the scraper
         if num_requests == 0 or not self.driver.find_elements(By.CLASS_NAME, 'nextrequest'):
             print('No requests scraped')
@@ -119,12 +116,9 @@ class NextRequestScraper:
 
         # Scrape initial request
         try:
-            self.scrape_request(requests, counter=counter, debug=debug)
+            counter += self.scrape_request(requests, counter=counter, debug=debug)
         except KeyboardInterrupt:
-            print('No requests scraped')
             return counter
-
-        counter += 1
 
         # For positive num_requests, return the list of requests if the counter reaches the desired number
         if (num_requests > 0) and (counter == num_requests):
@@ -140,30 +134,30 @@ class NextRequestScraper:
         # Continue to scrape until it is not possible to navigate to the next request,
         # either due to the scraper reaching the end of the database or because of a
         # timeout
-        try:
-            while self.driver.find_elements(By.CLASS_NAME, 'js-next-request'):
+        while self.driver.find_elements(By.CLASS_NAME, 'js-next-request'):
+            try:
                 self.driver.find_element(By.CLASS_NAME, 'js-next-request').click()  # Click on the arrow to navigate to the next request
 
                 if not self.driver.find_elements(By.CLASS_NAME, 'nextrequest'):
                     break
 
-                self.scrape_request(requests, counter=counter, debug=debug)
-
-                counter += 1
+                counter += self.scrape_request(requests, counter=counter, debug=debug)
 
                 if (num_requests > 0) and (counter == num_requests):
                     break
 
                 if progress and (counter % progress == 0):
                     print_progress(counter, start, end=timer())
-        except KeyboardInterrupt:
-            pass
-        finally:
-            # Final progress check
-            if progress:
-                print_progress_final(counter, start, end=timer(), last_request=requests[-1]['id'])
+            except KeyboardInterrupt:
+                break
 
-            return counter
+        if progress:
+            print_progress_final(counter, start, end=timer(), last_request=requests[-1]['id'])
+            
+        if debug:
+            print('')
+
+        return counter
 
     def scrape_request(self, requests, counter=-1, debug=0):
         """
@@ -187,7 +181,7 @@ class NextRequestScraper:
             depts = self.driver.find_element(By.CLASS_NAME, 'current-department').text  # Department(s) assigned to the request
             poc = self.driver.find_element(By.CLASS_NAME, 'request-detail').text  # Point of contact
 
-            # Documents attached to the request, if there are any (CURRENTLY DOES NOT SCRAPE ALL DOCUMENTS)
+            # Documents attached to the request, if there are any. Currently only scrapes the first 50 or so documents
             doc_list = self.driver.find_element(By.CLASS_NAME, 'document-list')  # Box containing documents
             if '(none)' not in doc_list.text:  # Check for the presence of documents
                 # Expand folders, if there are any
@@ -240,7 +234,7 @@ class NextRequestScraper:
                     event_items[i] = event_item
                     time_quotes[i] = time_quote
 
-                # DataFrame-converted-to-CSV consisting of all messages
+                # DataFrame, converted to CSV, consisting of all messages
                 events = pd.DataFrame({
                     'title': event_titles,
                     'item': event_items,
@@ -251,8 +245,7 @@ class NextRequestScraper:
             if debug:
                 print(request_id, 'scraped')
         except:  # If an exception occurs, print the stack trace
-            print('Exception occurred' + (' at count ' + str(counter + 1) if counter >= 0 else ''))
-            traceback.print_exc()
+            print('Exception occurred' + ((' at count ' + str(counter + 1)) if counter >= 0 else ''))
             print()
         finally:  # Append the request to the list
             requests.append({
@@ -265,3 +258,5 @@ class NextRequestScraper:
                 'poc': poc,
                 'msgs': events
             })
+            
+        return 1
