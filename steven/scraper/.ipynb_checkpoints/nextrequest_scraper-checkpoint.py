@@ -46,7 +46,8 @@ class NextRequestScraper:
                 print(it_num_title)
                 print('-' * len(it_num_title))
                 
-                # Scrape as many requests as possible before 
+                # Scrape as many requests as possible, subtracting from the total number of requests when we do so
+                # Note: if an exception occurs, we do not have to worry about doing this because the length of the request list wlil be returned
                 num_requests -= self.scrape_requests_sequential(requests, current_id,
                                                                 num_requests=num_requests,
                                                                 progress=progress,
@@ -245,7 +246,7 @@ class NextRequestScraper:
         return 1
 
     class InterruptScrapeException(Exception):
-        '''
+        """
         A special exception class used to indicate that a KeyboardInterrupt exception was thrown while the scraper was running
-        '''
+        """
         pass

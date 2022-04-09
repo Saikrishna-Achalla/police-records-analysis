@@ -405,3 +405,33 @@ Exiting due to channel error.
 Exiting due to channel error.
 Exiting due to channel error.
 Exiting due to channel error.
+1649474154254	geckodriver	INFO	Listening on 127.0.0.1:52489
+1649474154260	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "--remote-debugging-port" "60757" "-no-remote" "-profile" "/tmp/rust_mozprofilefx7fYH"
+*** You are running in headless mode.
+[GFX1-]: glxtest: Unable to open a connection to the X server
+[GFX1-]: glxtest: libEGL initialize failed
+[GFX1-]: No GPUs detected via PCI
+1649474154621	Marionette	INFO	Marionette enabled
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilefx7fYH/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:60757/devtools/browser/b674014b-5dd5-4574-b2bc-7e57c430b4fe
+1649474156643	Marionette	INFO	Listening on port 46451
+Read port: 46451
+1649474156708	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1649474462980	geckodriver	INFO	Listening on 127.0.0.1:41671
+1649474462987	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "--remote-debugging-port" "40185" "-no-remote" "-profile" "/tmp/rust_mozprofileb1rju2"
+*** You are running in headless mode.
+[GFX1-]: glxtest: Unable to open a connection to the X server
+[GFX1-]: glxtest: libEGL initialize failed
+[GFX1-]: No GPUs detected via PCI
+1649474463363	Marionette	INFO	Marionette enabled
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileb1rju2/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:40185/devtools/browser/1dfd80f3-ec41-418e-ab6f-52f9a2265528
+1649474465386	Marionette	INFO	Listening on port 40793
+Read port: 40793
+1649474465415	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1649474490670	Marionette	INFO	Stopped listening on port 40793
