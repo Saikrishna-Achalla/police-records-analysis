@@ -14,149 +14,126 @@ class NextRequestScraper:
     """
     Scraper scripts for NextRequest request databases. Currently does not scrape all possible documents from each request due to difficulties with navigation bars, but the number of such documents can be recovered from the messages.
     """
-    def __init__(self, driver, url, wait_time=1):
+    def __init__(self, driver, url, wait_time=0.1):
         self.driver = driver if 'webdriver' in str(type(driver)) else webdriver.Firefox()
         self.driver.implicitly_wait(wait_time)
         self.url = url if ((type(url) == str) and ('nextrequest.com' in url) and ('requests/' in url)) \
             else 'https://lacity.nextrequest.com/requests/'
 
-    def scrape(self, requests, earliest_id, requests_name='requests',
+    def scrape(self, requests, earliest_id, requests_name='requests', path='data/',
                num_requests=-1, timeout=10, progress=100, debug=0):
         """
         Main scraper routine
         TODO: Add better documentation
         """
-        num_its = 1  # Keeps track of how many times the scraper has been run
+        num_its = 1  # Keeps track of how many times the scraper has been (re-)run
 
         # Initialize the current ID to be either the earliest ID possible if the requests list is empty, or the last ID
         # in the list
-        current_id = requests[-1]['id'] if requests else earliest_id
+        if requests:
+            current_id = requests.pop()['id']
+            num_requests += 1
+        else:
+            current_id = earliest_id
 
-        # Start by running an initial iteration of the scraper
+        # Get the initial request URL
         self.driver.get(self.url + current_id)
-
-        # Print iteration number. TODO: Replace with file write
-        it_num_title = 'Iteration ' + str(num_its)
-        print(it_num_title)
-        print('-' * len(it_num_title))
-
-        # Re-scrape the current request
-        start_id = requests.pop()['id'] if requests else current_id
-        print('Starting request:', start_id)
-        print()
-
-        # Scrape requests until the scraper either reaches the end of the database or times out
-        try:
-            num_requests -= self.scrape_requests_sequential(requests,
-                                                            num_requests=num_requests,
-                                                            progress=progress,
-                                                            debug=debug)
-        except KeyboardInterrupt:
-            convert_requests_to_csv(requests, requests_name)
-            return len(requests)
-
-        num_its += 1 # Increase iteration count
         
-        # Stop scraping if number of requests reached
-        if not num_requests:
-            convert_requests_to_csv(requests, requests_name)
-            return len(requests)
-            
-        sleep(timeout)  # Wait after the script reaches the end of the database or after a timeout
-
-        # Restart the driver at the last request scraped
-        current_id = requests[-1]['id']
-        self.driver.get(self.url + current_id)
-
-        # Continue to scrape until the scraper reaches the end of the database or times out
-        while self.driver.find_elements(By.CLASS_NAME, 'js-next-request'):
+        while True:
             try:
+                # TODO: Replace console output with file write
                 it_num_title = 'Iteration ' + str(num_its)
                 print(it_num_title)
                 print('-' * len(it_num_title))
-
-                print('Starting request:', requests.pop()['id'])
-                print()
-                num_requests += 1
-
-                num_requests -= self.scrape_requests_sequential(requests,
+                
+                # Scrape as many requests as possible before 
+                num_requests -= self.scrape_requests_sequential(requests, current_id,
                                                                 num_requests=num_requests,
                                                                 progress=progress,
                                                                 debug=debug)
+                num_its += 1  # Increase number of iterations
 
-                num_its += 1
-                
+                # Stop scraping if number of requests reached
                 if not num_requests:
                     break
+
+                sleep(timeout)  # Wait for the specified amount of time before restarting the driver
                 
-                sleep(timeout)
-
-                current_id = requests[-1]['id']
-                self.driver.get(self.url + current_id)
-            except KeyboardInterrupt:
+                current_id = requests[-1]['id']  # Restart the driver at the last request scraped
+                self.driver.get(self.url + current_id)  # Get the request URL
+                self.driver.find_element(By.CLASS_NAME, 'js-next-request')  # Check if there are more requests after the current one
+                
+                requests.pop()
+                num_requests += 1  # Since the last request will be re-scraped, increase # of requests left to scrape by 1
+            except (NoSuchElementException, InterruptScrapeException):
                 break
-
-        convert_requests_to_csv(requests, requests_name)
+            except KeyboardInterrupt:
+                print('User interruption occurred between scraper iterations')
+                break
+                
+        try:
+            convert_requests_to_csv(requests, requests_name, path=path)
+        except FileNotFoundError:
+            print('Unable to convert requests into CSV')
+        
         return len(requests)
 
-    def scrape_requests_sequential(self, requests, num_requests=-1, progress=0, debug=0):
+    def scrape_requests_sequential(self, requests, start_id, num_requests=-1, progress=0, debug=0):
         """
-        Scrapes all records on a NextRequest request database starting from the given ID and
+        Scrapes all records on a NextRequest request database starting from the ID URL passed into the driver and
         moving forward chronologically until the number of requests scraped reaches a given
-        number. Each scraped requests is added to a given list. If num_requests is non-positive,
+        number. Each scraped requests is added to the given list. If num_requests is non-positive,
         then scrape as many records as possible.
         """
         start = timer()  # Timer for progress checking purposes
         counter = 0  # Keeps track of how many requests have been scraped
         
-        # Only scrape a request if it was loaded properly; otherwise, stop the scraper
-        if num_requests == 0 or not self.driver.find_elements(By.CLASS_NAME, 'nextrequest'):
+        # Show the starting ID, if desired
+        if progress:
+            print('Starting request:', start_id)
+            print()
+        
+        # Edge case: if no requests are wanted, then return immediately
+        if num_requests == 0:
             print('No requests scraped')
             return counter
+        
+        # If initial request ID is not valid or the webpage timed out, then raise an exception
+        if not self.driver.find_elements(By.CLASS_NAME, 'nextrequest'):
+            print('Invalid request ID, or webpage timed out')
+            raise NoSuchElementException
 
-        # Scrape initial request
-        try:
-            counter += self.scrape_request(requests, counter=counter, debug=debug)
-        except KeyboardInterrupt:
-            return counter
-
-        # For positive num_requests, return the list of requests if the counter reaches the desired number
-        if (num_requests > 0) and (counter == num_requests):
-            if progress:
-                print_progress_final(counter, start, end=timer(), last_request=requests[-1]['id'])
-
-            return counter
-
-        # Show progress, if desired
-        if progress and (counter % progress == 0):
-            print_progress(counter, start, end=timer())
-
-        # Continue to scrape until it is not possible to navigate to the next request,
-        # either due to the scraper reaching the end of the database or because of a
-        # timeout
-        while self.driver.find_elements(By.CLASS_NAME, 'js-next-request'):
+        # Scrape until it is not possible to navigate to the next request, either due to the scraper reaching the end of the database or because of a timeout
+        while True:
             try:
-                self.driver.find_element(By.CLASS_NAME, 'js-next-request').click()  # Click on the arrow to navigate to the next request
-
-                if not self.driver.find_elements(By.CLASS_NAME, 'nextrequest'):
-                    break
-
                 counter += self.scrape_request(requests, counter=counter, debug=debug)
 
-                if (num_requests > 0) and (counter == num_requests):
+                # Exit the loop if the number of requests is reached
+                if counter == num_requests: 
                     break
 
+                # Show scraper progress if desired
                 if progress and (counter % progress == 0):
                     print_progress(counter, start, end=timer())
-            except KeyboardInterrupt:
+                
+                self.driver.find_element(By.CLASS_NAME, 'js-next-request').click()  # If possible, navigate to the next request
+            except NoSuchElementException:  # Exit the loop if the js-next-request element cannot be found
                 break
-
+            except InterruptScrapeException:  # Handling for any exception thrown while a request was being scraped
+                if progress:
+                    print_progress_final(counter + 1, start, end=timer(), last_request=requests[-1]['id'])
+                raise InterruptScrapeException
+            except KeyboardInterrupt:  # Handling for any exception thrown in between scraping requests
+                print('User interruption occurred after count {}'.format(counter))
+                if progress:
+                    print_progress_final(counter + 1, start, end=timer(), last_request=requests[-1]['id'])
+                raise InterruptScrapeException
+        
+        # Show scraper progress if desired
         if progress:
             print_progress_final(counter, start, end=timer(), last_request=requests[-1]['id'])
             
-        if debug:
-            print('')
-
+        # Return the number of requests scraped
         return counter
 
     def scrape_request(self, requests, counter=-1, debug=0):
@@ -164,11 +141,13 @@ class NextRequestScraper:
         Scrapes data about a given request on a NextRequest request database, appending the result
         to the given list.
         """
+        # If initial request ID is not valid or the webpage timed out, then raise an exception
+        if not self.driver.find_elements(By.CLASS_NAME, 'nextrequest'):
+            print('Invalid request ID, or webpage timed out')
+            raise NoSuchElementException
+        
         request_id, status, desc, date, depts, req, fee, poc, events, docs = [None] * 10  # Initialize variables
         try:  # Attempt to scrape relevant data
-            """
-            TODO: Add additional fields such as requester name and fees paid
-            """
             request_id = self.driver.find_element(By.CLASS_NAME, 'request-title-text').text.split()[1][1:]  # Request ID
             status = self.driver.find_element(By.CLASS_NAME, 'request-status-label').text.strip()  # Request status
 
@@ -244,10 +223,14 @@ class NextRequestScraper:
             # For testing purposes, print a message whenever a request is successfully scraped
             if debug:
                 print(request_id, 'scraped')
-        except:  # If an exception occurs, print the stack trace
-            print('Exception occurred' + ((' at count ' + str(counter + 1)) if counter >= 0 else ''))
-            print()
-        finally:  # Append the request to the list
+        except NoSuchElementException:  
+            print('Could not find a web element' + ((' at count {}'.format(counter + 1) if counter >= 0 else '')))
+        except TimeoutException:
+            print('Webdriver timed out' + ((' at count {}'.format(counter + 1) if counter >= 0 else '')))
+        except KeyboardInterrupt:  # Raise a special exception if an interruption occurs while a request is being scraped
+            print('User interruption occurred' + ((' at count {}'.format(counter + 1) if counter >= 0 else '')))
+            raise InterruptScrapeException
+        finally:  # Always append the scraped request data to the list regardless of completeness
             requests.append({
                 'id': request_id,
                 'status': status,
@@ -258,5 +241,11 @@ class NextRequestScraper:
                 'poc': poc,
                 'msgs': events
             })
-            
+        
         return 1
+
+    class InterruptScrapeException(Exception):
+        '''
+        A special exception class used to indicate that a KeyboardInterrupt exception was thrown while the scraper was running
+        '''
+        pass

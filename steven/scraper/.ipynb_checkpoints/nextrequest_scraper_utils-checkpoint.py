@@ -6,14 +6,14 @@ import re
 import pandas as pd
 
 
-def convert_requests_to_csv(requests, requests_name):
+def convert_requests_to_csv(requests, requests_name, path='data/'):
     # Convert to DataFrame
     requests = [request for request in requests if (request and request['status'])]
     requests_df = pd.DataFrame(requests).drop_duplicates()
 
     # Create a zipped CSV file of the DataFrame
     compression_opts = dict(method='zip', archive_name=requests_name + '.csv')
-    requests_df.to_csv('data/' + requests_name + '.zip', index=False, compression=compression_opts)
+    requests_df.to_csv(path + requests_name + '.zip', index=False, compression=compression_opts)
 
 
 def print_progress(counter, start, end):
