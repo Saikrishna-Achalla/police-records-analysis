@@ -1,6 +1,7 @@
 """
 Functions useful for performing EDA on data scraped by the NextRequest webscraper.
 """
+from typing import List
 
 import pandas as pd
 from io import StringIO
@@ -11,7 +12,7 @@ def nextrequest_df_clean(df: pd.DataFrame, debug: bool = False) -> pd.DataFrame:
     if debug: print('fillna complete')
 
     df['docs_df'] = df['docs'].apply(
-            lambda csv: remove_empty_df(df_fill_na(csv_to_df(csv)))
+            lambda csv: remove_empty_df(df_fillna(csv_to_df(csv)))
         )
     if debug: print('docs_df complete')
     
