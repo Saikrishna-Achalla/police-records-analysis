@@ -6,35 +6,39 @@ import re
 import pandas as pd
 
 
-def convert_requests_to_csv(requests, requests_name, path='data/'):
+def log_msg(msg, log=''):
+    if log:
+        with open(log, 'a') as f:
+            f.write(msg)
+    print(msg, end='')
+        
+
+def convert_requests_to_csv(requests, requests_name, path='data/', log=''):
     # Convert to DataFrame
     requests = [request for request in requests if (request and request['status'])]
     requests_df = pd.DataFrame(requests).drop_duplicates()
 
     # Create a zipped CSV file of the DataFrame
-    compression_opts = dict(method='zip', archive_name=requests_name + '.csv')
-    requests_df.to_csv(path + requests_name + '.zip', index=False, compression=compression_opts)
+    try:
+        compression_opts = dict(method='zip', archive_name=requests_name + '.csv')
+        requests_df.to_csv(path + requests_name + '.zip', index=False, compression=compression_opts)
+        log_msg('Successfully converted requests into CSV\n\n', log=log)
+    except FileNotFoundError:
+        log_msg('Unable to convert requests into CSV\n\n', log=log)
 
 
-def print_progress(counter, start, end):
+def scraper_progress(counter, start, end):
     """
-    Prints scraper progress
+    String displaying scraper progress
     """
-    print('Requests scraped:', counter,
-          '\tAvg runtime:', str(round((end - start) / counter, 2)) + 's/request',
-          '\tTotal runtime:', str(round(end - start, 1)) + 's')
+    return 'Requests scraped: {:d}\tAvg runtime: {:.2f}s\tTotal runtime: {:.1f}s\n'.format(counter, (end - start) / counter, end - start)
 
 
-def print_progress_final(counter, start, end, last_request):
+def scraper_progress_final(counter, start, end, last_request):
     """
-    Prints final scraper progress
+    String displaying final scraper progress
     """
-    print('Total requests scraped:', counter,
-          '\tAvg runtime:', str(round((end - start) / counter, 2)) + 's/request',
-          '\tTotal runtime:', str(round(end - start, 1)) + 's')
-    print()
-    print('Last request scraped:', last_request)
-    print()
+    return 'Total requests scraped: {:d}\tAvg runtime: {:.2f}s\tTotal runtime: {:.1f}s\n\nLast request scraped: {}\n'.format(counter, (end - start) / counter, end - start, last_request)
 
 
 def get_city_from_url(url):

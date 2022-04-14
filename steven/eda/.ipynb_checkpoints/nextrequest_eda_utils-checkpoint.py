@@ -46,7 +46,7 @@ def remove_empty_df(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def extract_time(df: pd.DataFrame, col: str = 'date', on: List[str] = ' via ') -> pd.DataFrame:
-    # TODO: '[DATE] in person' is causing problems, find a simple way to extract the date from that
+    # TODO: '[DATE] in person' is causing problems, find a simple way to extract the date from that. Maybe try regex?
     return df_fillna(df.join(
             df[col].str.split(on, expand=True)
         ).drop(

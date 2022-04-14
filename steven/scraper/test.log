@@ -1,0 +1,40 @@
+Start time: 2022-04-14 16:58:35.812622
+
+Iteration 1
+-----------
+Starting request: 17-1
+
+Requests scraped: 2	Avg runtime: 1.79s	Total runtime: 3.6s
+Requests scraped: 4	Avg runtime: 2.02s	Total runtime: 8.1s
+Requests scraped: 6	Avg runtime: 2.24s	Total runtime: 13.4s
+Requests scraped: 8	Avg runtime: 2.16s	Total runtime: 17.3s
+Total requests scraped: 10	Avg runtime: 2.19s	Total runtime: 21.9s
+
+Last request scraped: 17-15
+-----------
+
+End time: 2022-04-14 16:58:57.711565
+
+***
+
+Start time: 2022-04-14 17:00:35.361832
+
+Iteration 1
+-----------
+Starting request: 17-1
+
+Requests scraped: 2	Avg runtime: 1.81s	Total runtime: 3.6s
+Requests scraped: 4	Avg runtime: 2.02s	Total runtime: 8.1s
+Requests scraped: 6	Avg runtime: 2.24s	Total runtime: 13.4s
+Requests scraped: 8	Avg runtime: 2.17s	Total runtime: 17.4s
+Total requests scraped: 10	Avg runtime: 2.20s	Total runtime: 22.0s
+
+Last request scraped: 17-15
+-----------
+
+Successfully converted requests into CSV
+
+End time: 2022-04-14 17:00:57.414809
+
+***
+

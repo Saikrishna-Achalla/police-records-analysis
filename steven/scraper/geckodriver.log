@@ -435,3 +435,415 @@ DevTools listening on ws://localhost:40185/devtools/browser/1dfd80f3-ec41-418e-a
 Read port: 40793
 1649474465415	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
 1649474490670	Marionette	INFO	Stopped listening on port 40793
+1649487938649	geckodriver	INFO	Listening on 127.0.0.1:51469
+1649487939154	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "--remote-debugging-port" "35319" "-no-remote" "-profile" "/tmp/rust_mozprofileFTwoe2"
+*** You are running in headless mode.
+[GFX1-]: glxtest: Unable to open a connection to the X server
+[GFX1-]: glxtest: libEGL initialize failed
+[GFX1-]: No GPUs detected via PCI
+1649487939520	Marionette	INFO	Marionette enabled
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileFTwoe2/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:35319/devtools/browser/43937860-2592-4697-904f-a05b8e01c688
+1649487941505	Marionette	INFO	Listening on port 44717
+Read port: 44717
+1649487941582	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1649488839660	geckodriver	INFO	Listening on 127.0.0.1:35717
+1649488840165	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "--remote-debugging-port" "54439" "-no-remote" "-profile" "/tmp/rust_mozprofile6uFxsT"
+*** You are running in headless mode.
+[GFX1-]: glxtest: Unable to open a connection to the X server
+[GFX1-]: glxtest: libEGL initialize failed
+[GFX1-]: No GPUs detected via PCI
+1649488840544	Marionette	INFO	Marionette enabled
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofile6uFxsT/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:54439/devtools/browser/8bde7434-9285-4998-af57-f7833e54aa0a
+1649488842655	Marionette	INFO	Listening on port 45635
+Read port: 45635
+1649488842690	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1649488877995	geckodriver	INFO	Listening on 127.0.0.1:36471
+1649488878499	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "--remote-debugging-port" "33815" "-no-remote" "-profile" "/tmp/rust_mozprofileyIEpd6"
+*** You are running in headless mode.
+[GFX1-]: glxtest: Unable to open a connection to the X server
+[GFX1-]: glxtest: libEGL initialize failed
+[GFX1-]: No GPUs detected via PCI
+1649488878868	Marionette	INFO	Marionette enabled
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileyIEpd6/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:33815/devtools/browser/e6ea717d-df2b-4c51-b190-697bf90983f0
+1649488880913	Marionette	INFO	Listening on port 37423
+Read port: 37423
+1649488881026	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://ls2pac.lapl.org"
+1649954346493	geckodriver	INFO	Listening on 127.0.0.1:42759
+1649954346998	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "--remote-debugging-port" "38875" "-no-remote" "-profile" "/tmp/rust_mozprofileN3YA0u"
+*** You are running in headless mode.
+[GFX1-]: glxtest: Unable to open a connection to the X server
+[GFX1-]: glxtest: libEGL initialize failed
+[GFX1-]: No GPUs detected via PCI
+1649954347859	Marionette	INFO	Marionette enabled
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileN3YA0u/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:38875/devtools/browser/6a4add11-8d88-4a30-a415-59260d58c46c
+1649954350347	Marionette	INFO	Listening on port 43519
+Read port: 43519
+1649954350443	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1649954367704	geckodriver	INFO	Listening on 127.0.0.1:50175
+1649954368209	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "--remote-debugging-port" "49489" "-no-remote" "-profile" "/tmp/rust_mozprofilepUh3K9"
+*** You are running in headless mode.
+[GFX1-]: glxtest: Unable to open a connection to the X server
+[GFX1-]: glxtest: libEGL initialize failed
+[GFX1-]: No GPUs detected via PCI
+1649954368598	Marionette	INFO	Marionette enabled
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilepUh3K9/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:49489/devtools/browser/c50c3c24-7a28-4003-b672-def7bf1ab8fe
+1649954370801	Marionette	INFO	Listening on port 43101
+Read port: 43101
+1649954370844	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1649954452102	geckodriver	INFO	Listening on 127.0.0.1:35023
+1649954452112	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "--remote-debugging-port" "40083" "-no-remote" "-profile" "/tmp/rust_mozprofileUaZzb3"
+*** You are running in headless mode.
+[GFX1-]: glxtest: Unable to open a connection to the X server
+[GFX1-]: glxtest: libEGL initialize failed
+[GFX1-]: No GPUs detected via PCI
+1649954452532	Marionette	INFO	Marionette enabled
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileUaZzb3/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:40083/devtools/browser/bed1b91f-391d-4627-a075-73603970d308
+1649954454564	Marionette	INFO	Listening on port 37169
+Read port: 37169
+1649954454638	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1649954479052	Marionette	INFO	Stopped listening on port 37169
+1649954536753	geckodriver	INFO	Listening on 127.0.0.1:38841
+1649954536762	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "--remote-debugging-port" "41747" "-no-remote" "-profile" "/tmp/rust_mozprofilePYHs8A"
+*** You are running in headless mode.
+[GFX1-]: glxtest: Unable to open a connection to the X server
+[GFX1-]: glxtest: libEGL initialize failed
+[GFX1-]: No GPUs detected via PCI
+1649954537132	Marionette	INFO	Marionette enabled
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilePYHs8A/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:41747/devtools/browser/2015f119-ea67-4682-a41a-abc5411c47e8
+1649954539210	Marionette	INFO	Listening on port 39297
+Read port: 39297
+1649954539288	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1649954564316	Marionette	INFO	Stopped listening on port 39297
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
+1649954724442	geckodriver	INFO	Listening on 127.0.0.1:58057
+1649954724451	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "--remote-debugging-port" "60229" "-no-remote" "-profile" "/tmp/rust_mozprofilehY2YYe"
+*** You are running in headless mode.
+[GFX1-]: glxtest: Unable to open a connection to the X server
+[GFX1-]: glxtest: libEGL initialize failed
+[GFX1-]: No GPUs detected via PCI
+1649954724811	Marionette	INFO	Marionette enabled
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilehY2YYe/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:60229/devtools/browser/f184cac1-700f-43d7-95c6-610edd6a14fb
+1649954726899	Marionette	INFO	Listening on port 34485
+Read port: 34485
+1649954726977	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1649954751770	Marionette	INFO	Stopped listening on port 34485
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
+1649954857608	geckodriver	INFO	Listening on 127.0.0.1:50987
+1649954857616	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "--remote-debugging-port" "36697" "-no-remote" "-profile" "/tmp/rust_mozprofileQYXaDk"
+*** You are running in headless mode.
+[GFX1-]: glxtest: Unable to open a connection to the X server
+[GFX1-]: glxtest: libEGL initialize failed
+[GFX1-]: No GPUs detected via PCI
+1649954857981	Marionette	INFO	Marionette enabled
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileQYXaDk/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:36697/devtools/browser/bd9c0b6b-9ecf-4a02-b291-b84288c902fa
+1649954860056	Marionette	INFO	Listening on port 45777
+Read port: 45777
+1649954860147	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1649954983953	geckodriver	INFO	Listening on 127.0.0.1:45491
+1649954983960	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "--remote-debugging-port" "37495" "-no-remote" "-profile" "/tmp/rust_mozprofileamWG0a"
+*** You are running in headless mode.
+[GFX1-]: glxtest: Unable to open a connection to the X server
+[GFX1-]: glxtest: libEGL initialize failed
+[GFX1-]: No GPUs detected via PCI
+1649954984344	Marionette	INFO	Marionette enabled
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileamWG0a/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:37495/devtools/browser/8b8a2903-8651-4bc8-8b53-cf49955f84f0
+1649954986551	Marionette	INFO	Listening on port 36417
+Read port: 36417
+1649954986588	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1649955298116	geckodriver	INFO	Listening on 127.0.0.1:42603
+1649955298620	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "--remote-debugging-port" "58803" "-no-remote" "-profile" "/tmp/rust_mozprofilealiPVy"
+*** You are running in headless mode.
+[GFX1-]: glxtest: Unable to open a connection to the X server
+[GFX1-]: glxtest: libEGL initialize failed
+[GFX1-]: No GPUs detected via PCI
+1649955298989	Marionette	INFO	Marionette enabled
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilealiPVy/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:58803/devtools/browser/7e4772aa-abbd-4200-b9a4-13de77be4934
+1649955301003	Marionette	INFO	Listening on port 35971
+Read port: 35971
+1649955301047	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1649955352516	geckodriver	INFO	Listening on 127.0.0.1:46523
+1649955352522	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "--remote-debugging-port" "33171" "-no-remote" "-profile" "/tmp/rust_mozprofilewROyTQ"
+*** You are running in headless mode.
+[GFX1-]: glxtest: Unable to open a connection to the X server
+[GFX1-]: glxtest: libEGL initialize failed
+[GFX1-]: No GPUs detected via PCI
+1649955352902	Marionette	INFO	Marionette enabled
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilewROyTQ/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:33171/devtools/browser/a12b17c8-c123-4e0f-8684-a01dad7fea56
+1649955355094	Marionette	INFO	Listening on port 41541
+Read port: 41541
+1649955355149	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1649955511091	geckodriver	INFO	Listening on 127.0.0.1:41555
+1649955511098	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "--remote-debugging-port" "42641" "-no-remote" "-profile" "/tmp/rust_mozprofile6HiuUP"
+*** You are running in headless mode.
+[GFX1-]: glxtest: Unable to open a connection to the X server
+[GFX1-]: glxtest: libEGL initialize failed
+[GFX1-]: No GPUs detected via PCI
+1649955511495	Marionette	INFO	Marionette enabled
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofile6HiuUP/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:42641/devtools/browser/42facce5-ed77-4167-8b24-0080c1f86b81
+1649955513615	Marionette	INFO	Listening on port 43205
+Read port: 43205
+1649955513738	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1649955537715	Marionette	INFO	Stopped listening on port 43205
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
+1649955630779	geckodriver	INFO	Listening on 127.0.0.1:58029
+1649955630788	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "--remote-debugging-port" "45805" "-no-remote" "-profile" "/tmp/rust_mozprofileUYtNop"
+*** You are running in headless mode.
+[GFX1-]: glxtest: Unable to open a connection to the X server
+[GFX1-]: glxtest: libEGL initialize failed
+[GFX1-]: No GPUs detected via PCI
+1649955631166	Marionette	INFO	Marionette enabled
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileUYtNop/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:45805/devtools/browser/a85a1661-71cf-44dc-8721-1abf167790e9
+1649955633188	Marionette	INFO	Listening on port 39617
+Read port: 39617
+1649955633219	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1649955657418	Marionette	INFO	Stopped listening on port 39617

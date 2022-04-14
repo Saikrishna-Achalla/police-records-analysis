@@ -1,11 +1,12 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
-from selenium.common.exceptions import NoSuchElementException, TimeoutException
+from selenium.common.exceptions import NoSuchElementException, TimeoutException, StaleElementReferenceException
 
 import traceback
 from timeit import default_timer as timer
 from time import sleep
+from datetime import datetime
 
 from nextrequest_scraper_utils import *
 
@@ -21,12 +22,13 @@ class NextRequestScraper:
             else 'https://lacity.nextrequest.com/requests/'
 
     def scrape(self, requests, earliest_id, requests_name='requests', path='data/',
-               num_requests=-1, timeout=10, progress=100, debug=0):
+               num_requests=-1, timeout=10, progress=100, debug=0, log=''):
         """
         Main scraper routine
         TODO: Add better documentation
         """
         num_its = 1  # Keeps track of how many times the scraper has been (re-)run
+        if log == -1: log = path + requests_name + '.log'  # If no directory is specified, point to this one
 
         # Initialize the current ID to be either the earliest ID possible if the requests list is empty, or the last ID
         # in the list
@@ -39,20 +41,24 @@ class NextRequestScraper:
         # Get the initial request URL
         self.driver.get(self.url + current_id)
         
+        # Initial log message
+        log_msg('Start time: {}\n\n'.format(str(datetime.now())), log=log)
+        
         while True:
             try:
                 # TODO: Replace console output with file write
                 it_num_title = 'Iteration ' + str(num_its)
-                print(it_num_title)
-                print('-' * len(it_num_title))
+                it_num_line = '-' * len(it_num_title)
+                log_msg('{}\n{}\n'.format(it_num_title, it_num_line), log=log)
                 
                 # Scrape as many requests as possible, subtracting from the total number of requests when we do so
                 # Note: if an exception occurs, we do not have to worry about doing this because the length of the request list wlil be returned
                 num_requests -= self.scrape_requests_sequential(requests, current_id,
                                                                 num_requests=num_requests,
                                                                 progress=progress,
-                                                                debug=debug)
+                                                                debug=debug, log=log)
                 num_its += 1  # Increase number of iterations
+                log_msg('{}\n\n'.format(it_num_line), log=log)
 
                 # Stop scraping if number of requests reached
                 if not num_requests:
@@ -67,19 +73,20 @@ class NextRequestScraper:
                 requests.pop()
                 num_requests += 1  # Since the last request will be re-scraped, increase # of requests left to scrape by 1
             except (NoSuchElementException, InterruptScrapeException):
+                log_msg('{}\n\n'.format(it_num_line), log=log)
                 break
             except KeyboardInterrupt:
-                print('User interruption occurred between scraper iterations')
+                log_msg('User interruption occurred between scraper iterations\n{}\n\n'.format(it_num_line), log=log)
                 break
-                
-        try:
-            convert_requests_to_csv(requests, requests_name, path=path)
-        except FileNotFoundError:
-            print('Unable to convert requests into CSV')
+            except:
+                log_msg('Exception occurred between scraper iterations\n{}\n{}\n\n'.format(traceback.format_exc(), it_num_line), log=log)
+                break
         
+        convert_requests_to_csv(requests, requests_name, path=path, log=log)
+        log_msg('End time: {}\n\n***\n\n'.format(str(datetime.now())), log=log)
         return len(requests)
 
-    def scrape_requests_sequential(self, requests, start_id, num_requests=-1, progress=0, debug=0):
+    def scrape_requests_sequential(self, requests, start_id, num_requests=-1, progress=0, debug=0, log=''):
         """
         Scrapes all records on a NextRequest request database starting from the ID URL passed into the driver and
         moving forward chronologically until the number of requests scraped reaches a given
@@ -90,24 +97,17 @@ class NextRequestScraper:
         counter = 0  # Keeps track of how many requests have been scraped
         
         # Show the starting ID, if desired
-        if progress:
-            print('Starting request:', start_id)
-            print()
+        if progress: log_msg('Starting request: {}\n\n'.format(start_id), log=log)
         
-        # Edge case: if no requests are wanted, then return immediately
+        # If no requests are wanted, then return immediately
         if num_requests == 0:
-            print('No requests scraped')
+            if progress: log_msg('No requests scraped\n\n', log=log)
             return counter
-        
-        # If initial request ID is not valid or the webpage timed out, then raise an exception
-        if not self.driver.find_elements(By.CLASS_NAME, 'nextrequest'):
-            print('Invalid request ID, or webpage timed out')
-            raise NoSuchElementException
 
         # Scrape until it is not possible to navigate to the next request, either due to the scraper reaching the end of the database or because of a timeout
         while True:
             try:
-                counter += self.scrape_request(requests, counter=counter, debug=debug)
+                counter += self.scrape_request(requests, counter=counter, debug=debug, log=log)
 
                 # Exit the loop if the number of requests is reached
                 if counter == num_requests: 
@@ -115,39 +115,39 @@ class NextRequestScraper:
 
                 # Show scraper progress if desired
                 if progress and (counter % progress == 0):
-                    print_progress(counter, start, end=timer())
+                    log_msg(scraper_progress(counter, start, end=timer()), log=log)
                 
                 self.driver.find_element(By.CLASS_NAME, 'js-next-request').click()  # If possible, navigate to the next request
             except NoSuchElementException:  # Exit the loop if the js-next-request element cannot be found
                 break
             except InterruptScrapeException:  # Handling for any exception thrown while a request was being scraped
                 if progress:
-                    print_progress_final(counter + 1, start, end=timer(), last_request=requests[-1]['id'])
+                    log_msg(scraper_progress_final(counter + 1, start, end=timer(), last_request=requests[-1]['id']), log=log)
                 raise InterruptScrapeException
             except KeyboardInterrupt:  # Handling for any exception thrown in between scraping requests
-                print('User interruption occurred after count {}'.format(counter))
+                log_msg('User interruption occurred after count {}\n'.format(counter), log=log)
                 if progress:
-                    print_progress_final(counter + 1, start, end=timer(), last_request=requests[-1]['id'])
+                    log_msg(scraper_progress_final(counter + 1, start, end=timer(), last_request=requests[-1]['id']), log=log)
                 raise InterruptScrapeException
+            except:
+                log_msg('Exception occurred after count {}\n{}\n'.format(counter, traceback.format_exc()), log=log)
+                break
         
         # Show scraper progress if desired
         if progress:
-            print_progress_final(counter, start, end=timer(), last_request=requests[-1]['id'])
+            log_msg(scraper_progress_final(counter, start, end=timer(), last_request=requests[-1]['id']), log=log)
             
         # Return the number of requests scraped
         return counter
 
-    def scrape_request(self, requests, counter=-1, debug=0):
+    def scrape_request(self, requests, counter=-1, debug=0, log=''):
         """
         Scrapes data about a given request on a NextRequest request database, appending the result
         to the given list.
         """
-        # If initial request ID is not valid or the webpage timed out, then raise an exception
-        if not self.driver.find_elements(By.CLASS_NAME, 'nextrequest'):
-            print('Invalid request ID, or webpage timed out')
-            raise NoSuchElementException
-        
         request_id, status, desc, date, depts, req, fee, poc, events, docs = [None] * 10  # Initialize variables
+        count_err_msg = (' while scraping count {}'.format(counter + 1) if counter >= 0 else '') + '\n'
+        
         try:  # Attempt to scrape relevant data
             request_id = self.driver.find_element(By.CLASS_NAME, 'request-title-text').text.split()[1][1:]  # Request ID
             status = self.driver.find_element(By.CLASS_NAME, 'request-status-label').text.strip()  # Request status
@@ -225,12 +225,16 @@ class NextRequestScraper:
             if debug:
                 print(request_id, 'scraped')
         except NoSuchElementException:  
-            print('Could not find a web element' + ((' at count {}'.format(counter + 1) if counter >= 0 else '')))
+            log_msg('Webdriver could not find element{}'.format(count_err_msg), log=log)
+        except StaleElementReferenceException:
+            log_msg('Stale element referenced{}'.format(count_err_msg), log=log)
         except TimeoutException:
-            print('Webdriver timed out' + ((' at count {}'.format(counter + 1) if counter >= 0 else '')))
+            log_msg('Webdriver timed out{}'.format(count_err_msg), log=log)
         except KeyboardInterrupt:  # Raise a special exception if an interruption occurs while a request is being scraped
-            print('User interruption occurred' + ((' at count {}'.format(counter + 1) if counter >= 0 else '')))
+            log_msg('User interruption occurred{}'.format(count_err_msg), log=log)
             raise InterruptScrapeException
+        except:
+            log_msg('Exception occurred{}\n{}'.format(count_err_msg, traceback.format_exc()), log=log)
         finally:  # Always append the scraped request data to the list regardless of completeness
             requests.append({
                 'id': request_id,
@@ -245,8 +249,8 @@ class NextRequestScraper:
         
         return 1
 
-    class InterruptScrapeException(Exception):
-        """
-        A special exception class used to indicate that a KeyboardInterrupt exception was thrown while the scraper was running
-        """
-        pass
+class InterruptScrapeException(Exception):
+    """
+    A special exception class used to indicate that a KeyboardInterrupt exception was thrown while the scraper was running
+    """
+    pass
