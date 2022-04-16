@@ -1,0 +1,260 @@
+Start time: 2022-04-15 16:08:27.982428
+
+Iteration 1
+-----------
+Starting request: 19-1851
+
+Requests scraped: 100	Avg runtime: 2.18s	Total runtime: 217.7s
+Stale element referenced while scraping count 103
+Total requests scraped: 103	Avg runtime: 2.21s	Total runtime: 228.0s
+
+Last request scraped: 19-2007
+-----------
+
+Iteration 2
+-----------
+Starting request: 19-2007
+
+Requests scraped: 100	Avg runtime: 2.33s	Total runtime: 232.7s
+Requests scraped: 200	Avg runtime: 2.34s	Total runtime: 467.2s
+Requests scraped: 300	Avg runtime: 2.29s	Total runtime: 686.0s
+Requests scraped: 400	Avg runtime: 2.28s	Total runtime: 913.0s
+Requests scraped: 500	Avg runtime: 2.25s	Total runtime: 1125.6s
+Requests scraped: 600	Avg runtime: 2.22s	Total runtime: 1329.4s
+Requests scraped: 700	Avg runtime: 2.20s	Total runtime: 1542.6s
+Requests scraped: 800	Avg runtime: 2.19s	Total runtime: 1751.6s
+Requests scraped: 900	Avg runtime: 2.18s	Total runtime: 1959.0s
+Requests scraped: 1000	Avg runtime: 2.18s	Total runtime: 2176.2s
+Requests scraped: 1100	Avg runtime: 2.17s	Total runtime: 2390.4s
+Requests scraped: 1200	Avg runtime: 2.17s	Total runtime: 2605.8s
+Requests scraped: 1300	Avg runtime: 2.18s	Total runtime: 2838.7s
+Requests scraped: 1400	Avg runtime: 2.18s	Total runtime: 3058.3s
+Requests scraped: 1500	Avg runtime: 2.18s	Total runtime: 3271.4s
+Requests scraped: 1600	Avg runtime: 2.18s	Total runtime: 3485.5s
+Requests scraped: 1700	Avg runtime: 2.17s	Total runtime: 3697.3s
+Requests scraped: 1800	Avg runtime: 2.18s	Total runtime: 3924.6s
+Requests scraped: 1900	Avg runtime: 2.21s	Total runtime: 4197.7s
+Requests scraped: 2000	Avg runtime: 2.21s	Total runtime: 4414.8s
+Requests scraped: 2100	Avg runtime: 2.22s	Total runtime: 4667.6s
+Requests scraped: 2200	Avg runtime: 2.22s	Total runtime: 4883.8s
+Requests scraped: 2300	Avg runtime: 2.23s	Total runtime: 5130.4s
+Requests scraped: 2400	Avg runtime: 2.23s	Total runtime: 5363.5s
+Requests scraped: 2500	Avg runtime: 2.23s	Total runtime: 5574.9s
+Requests scraped: 2600	Avg runtime: 2.23s	Total runtime: 5791.8s
+Webdriver could not find element while scraping count 2639
+Requests scraped: 2700	Avg runtime: 2.23s	Total runtime: 6031.6s
+Requests scraped: 2800	Avg runtime: 2.23s	Total runtime: 6257.4s
+Requests scraped: 2900	Avg runtime: 2.24s	Total runtime: 6485.4s
+Requests scraped: 3000	Avg runtime: 2.24s	Total runtime: 6719.4s
+Requests scraped: 3100	Avg runtime: 2.24s	Total runtime: 6944.7s
+Requests scraped: 3200	Avg runtime: 2.24s	Total runtime: 7164.0s
+Requests scraped: 3300	Avg runtime: 2.25s	Total runtime: 7411.7s
+Requests scraped: 3400	Avg runtime: 2.25s	Total runtime: 7633.4s
+Requests scraped: 3500	Avg runtime: 2.25s	Total runtime: 7857.5s
+Requests scraped: 3600	Avg runtime: 2.25s	Total runtime: 8085.9s
+Requests scraped: 3700	Avg runtime: 2.24s	Total runtime: 8303.9s
+Requests scraped: 3800	Avg runtime: 2.25s	Total runtime: 8531.3s
+Requests scraped: 3900	Avg runtime: 2.25s	Total runtime: 8758.7s
+Requests scraped: 4000	Avg runtime: 2.25s	Total runtime: 8982.3s
+Requests scraped: 4100	Avg runtime: 2.24s	Total runtime: 9202.4s
+Requests scraped: 4200	Avg runtime: 2.24s	Total runtime: 9419.4s
+Requests scraped: 4300	Avg runtime: 2.24s	Total runtime: 9635.3s
+Requests scraped: 4400	Avg runtime: 2.24s	Total runtime: 9868.7s
+Requests scraped: 4500	Avg runtime: 2.24s	Total runtime: 10093.6s
+Requests scraped: 4600	Avg runtime: 2.24s	Total runtime: 10324.4s
+Requests scraped: 4700	Avg runtime: 2.25s	Total runtime: 10558.1s
+Requests scraped: 4800	Avg runtime: 2.25s	Total runtime: 10783.0s
+Requests scraped: 4900	Avg runtime: 2.25s	Total runtime: 11006.7s
+Requests scraped: 5000	Avg runtime: 2.25s	Total runtime: 11228.5s
+Requests scraped: 5100	Avg runtime: 2.25s	Total runtime: 11464.1s
+Stale element referenced while scraping count 5148
+Total requests scraped: 5148	Avg runtime: 2.25s	Total runtime: 11578.0s
+
+Last request scraped: 20-1327
+-----------
+
+Iteration 3
+-----------
+Starting request: 20-1327
+
+Requests scraped: 100	Avg runtime: 2.28s	Total runtime: 228.0s
+Requests scraped: 200	Avg runtime: 2.17s	Total runtime: 433.5s
+Requests scraped: 300	Avg runtime: 2.20s	Total runtime: 658.8s
+Requests scraped: 400	Avg runtime: 2.20s	Total runtime: 878.0s
+Requests scraped: 500	Avg runtime: 2.19s	Total runtime: 1093.9s
+Requests scraped: 600	Avg runtime: 2.18s	Total runtime: 1307.4s
+Requests scraped: 700	Avg runtime: 2.16s	Total runtime: 1514.5s
+Requests scraped: 800	Avg runtime: 2.16s	Total runtime: 1724.7s
+Requests scraped: 900	Avg runtime: 2.15s	Total runtime: 1937.7s
+Requests scraped: 1000	Avg runtime: 2.18s	Total runtime: 2179.7s
+Requests scraped: 1100	Avg runtime: 2.19s	Total runtime: 2406.4s
+Webdriver could not find element while scraping count 1129
+Requests scraped: 1200	Avg runtime: 2.19s	Total runtime: 2624.5s
+Requests scraped: 1300	Avg runtime: 2.19s	Total runtime: 2847.9s
+Requests scraped: 1400	Avg runtime: 2.21s	Total runtime: 3090.7s
+Requests scraped: 1500	Avg runtime: 2.21s	Total runtime: 3311.2s
+Requests scraped: 1600	Avg runtime: 2.21s	Total runtime: 3538.8s
+Requests scraped: 1700	Avg runtime: 2.22s	Total runtime: 3771.7s
+Requests scraped: 1800	Avg runtime: 2.23s	Total runtime: 4012.8s
+Requests scraped: 1900	Avg runtime: 2.24s	Total runtime: 4256.4s
+Requests scraped: 2000	Avg runtime: 2.24s	Total runtime: 4484.4s
+Requests scraped: 2100	Avg runtime: 2.24s	Total runtime: 4708.0s
+Requests scraped: 2200	Avg runtime: 2.24s	Total runtime: 4933.4s
+Requests scraped: 2300	Avg runtime: 2.25s	Total runtime: 5167.4s
+Requests scraped: 2400	Avg runtime: 2.25s	Total runtime: 5398.2s
+Requests scraped: 2500	Avg runtime: 2.25s	Total runtime: 5616.1s
+Requests scraped: 2600	Avg runtime: 2.24s	Total runtime: 5830.1s
+Requests scraped: 2700	Avg runtime: 2.24s	Total runtime: 6047.9s
+Requests scraped: 2800	Avg runtime: 2.24s	Total runtime: 6275.4s
+Requests scraped: 2900	Avg runtime: 2.24s	Total runtime: 6503.0s
+Requests scraped: 3000	Avg runtime: 2.24s	Total runtime: 6731.7s
+Requests scraped: 3100	Avg runtime: 2.24s	Total runtime: 6954.6s
+Requests scraped: 3200	Avg runtime: 2.24s	Total runtime: 7183.9s
+Requests scraped: 3300	Avg runtime: 2.24s	Total runtime: 7407.3s
+Requests scraped: 3400	Avg runtime: 2.25s	Total runtime: 7640.9s
+Requests scraped: 3500	Avg runtime: 2.25s	Total runtime: 7870.2s
+Requests scraped: 3600	Avg runtime: 2.25s	Total runtime: 8095.2s
+Requests scraped: 3700	Avg runtime: 2.25s	Total runtime: 8318.7s
+Requests scraped: 3800	Avg runtime: 2.25s	Total runtime: 8533.0s
+Requests scraped: 3900	Avg runtime: 2.25s	Total runtime: 8767.6s
+Requests scraped: 4000	Avg runtime: 2.25s	Total runtime: 8985.7s
+Requests scraped: 4100	Avg runtime: 2.25s	Total runtime: 9215.6s
+Requests scraped: 4200	Avg runtime: 2.25s	Total runtime: 9443.0s
+Requests scraped: 4300	Avg runtime: 2.25s	Total runtime: 9689.2s
+Requests scraped: 4400	Avg runtime: 2.26s	Total runtime: 9943.0s
+Requests scraped: 4500	Avg runtime: 2.26s	Total runtime: 10184.9s
+Requests scraped: 4600	Avg runtime: 2.26s	Total runtime: 10405.1s
+Requests scraped: 4700	Avg runtime: 2.26s	Total runtime: 10618.6s
+Requests scraped: 4800	Avg runtime: 2.26s	Total runtime: 10843.5s
+Requests scraped: 4900	Avg runtime: 2.26s	Total runtime: 11092.0s
+Requests scraped: 5000	Avg runtime: 2.27s	Total runtime: 11326.4s
+Requests scraped: 5100	Avg runtime: 2.27s	Total runtime: 11561.3s
+Requests scraped: 5200	Avg runtime: 2.27s	Total runtime: 11784.9s
+Requests scraped: 5300	Avg runtime: 2.27s	Total runtime: 12011.9s
+Requests scraped: 5400	Avg runtime: 2.27s	Total runtime: 12232.8s
+Requests scraped: 5500	Avg runtime: 2.26s	Total runtime: 12452.5s
+Requests scraped: 5600	Avg runtime: 2.27s	Total runtime: 12693.4s
+Requests scraped: 5700	Avg runtime: 2.27s	Total runtime: 12920.3s
+Requests scraped: 5800	Avg runtime: 2.27s	Total runtime: 13163.6s
+Requests scraped: 5900	Avg runtime: 2.27s	Total runtime: 13385.7s
+Requests scraped: 6000	Avg runtime: 2.27s	Total runtime: 13609.3s
+Requests scraped: 6100	Avg runtime: 2.28s	Total runtime: 13880.7s
+Requests scraped: 6200	Avg runtime: 2.28s	Total runtime: 14115.5s
+Requests scraped: 6300	Avg runtime: 2.28s	Total runtime: 14348.1s
+Requests scraped: 6400	Avg runtime: 2.28s	Total runtime: 14568.6s
+Requests scraped: 6500	Avg runtime: 2.27s	Total runtime: 14784.6s
+Requests scraped: 6600	Avg runtime: 2.27s	Total runtime: 15007.5s
+Requests scraped: 6700	Avg runtime: 2.28s	Total runtime: 15249.4s
+Requests scraped: 6800	Avg runtime: 2.28s	Total runtime: 15478.4s
+Requests scraped: 6900	Avg runtime: 2.28s	Total runtime: 15703.2s
+Requests scraped: 7000	Avg runtime: 2.28s	Total runtime: 15937.9s
+Requests scraped: 7100	Avg runtime: 2.28s	Total runtime: 16152.8s
+Requests scraped: 7200	Avg runtime: 2.28s	Total runtime: 16381.1s
+Requests scraped: 7300	Avg runtime: 2.28s	Total runtime: 16608.0s
+Requests scraped: 7400	Avg runtime: 2.27s	Total runtime: 16834.5s
+Requests scraped: 7500	Avg runtime: 2.28s	Total runtime: 17064.9s
+Requests scraped: 7600	Avg runtime: 2.28s	Total runtime: 17290.4s
+Requests scraped: 7700	Avg runtime: 2.28s	Total runtime: 17520.7s
+Requests scraped: 7800	Avg runtime: 2.27s	Total runtime: 17742.5s
+Requests scraped: 7900	Avg runtime: 2.28s	Total runtime: 17976.4s
+Requests scraped: 8000	Avg runtime: 2.28s	Total runtime: 18214.5s
+Requests scraped: 8100	Avg runtime: 2.28s	Total runtime: 18437.2s
+Requests scraped: 8200	Avg runtime: 2.27s	Total runtime: 18653.6s
+Requests scraped: 8300	Avg runtime: 2.28s	Total runtime: 18885.1s
+Requests scraped: 8400	Avg runtime: 2.28s	Total runtime: 19118.5s
+Requests scraped: 8500	Avg runtime: 2.28s	Total runtime: 19366.2s
+Requests scraped: 8600	Avg runtime: 2.28s	Total runtime: 19608.0s
+Requests scraped: 8700	Avg runtime: 2.28s	Total runtime: 19857.2s
+Requests scraped: 8800	Avg runtime: 2.28s	Total runtime: 20086.6s
+Requests scraped: 8900	Avg runtime: 2.28s	Total runtime: 20321.3s
+Requests scraped: 9000	Avg runtime: 2.28s	Total runtime: 20545.9s
+Requests scraped: 9100	Avg runtime: 2.28s	Total runtime: 20782.1s
+Requests scraped: 9200	Avg runtime: 2.28s	Total runtime: 21005.9s
+Requests scraped: 9300	Avg runtime: 2.28s	Total runtime: 21247.6s
+Requests scraped: 9400	Avg runtime: 2.28s	Total runtime: 21477.3s
+Requests scraped: 9500	Avg runtime: 2.28s	Total runtime: 21700.2s
+Requests scraped: 9600	Avg runtime: 2.28s	Total runtime: 21913.8s
+Requests scraped: 9700	Avg runtime: 2.28s	Total runtime: 22138.6s
+Requests scraped: 9800	Avg runtime: 2.28s	Total runtime: 22372.1s
+Requests scraped: 9900	Avg runtime: 2.28s	Total runtime: 22591.4s
+Requests scraped: 10000	Avg runtime: 2.28s	Total runtime: 22812.5s
+Requests scraped: 10100	Avg runtime: 2.28s	Total runtime: 23054.5s
+Requests scraped: 10200	Avg runtime: 2.28s	Total runtime: 23276.7s
+Requests scraped: 10300	Avg runtime: 2.28s	Total runtime: 23497.1s
+Requests scraped: 10400	Avg runtime: 2.28s	Total runtime: 23721.0s
+Requests scraped: 10500	Avg runtime: 2.28s	Total runtime: 23947.0s
+Requests scraped: 10600	Avg runtime: 2.28s	Total runtime: 24176.4s
+Requests scraped: 10700	Avg runtime: 2.28s	Total runtime: 24393.8s
+Requests scraped: 10800	Avg runtime: 2.28s	Total runtime: 24619.9s
+Requests scraped: 10900	Avg runtime: 2.28s	Total runtime: 24835.9s
+Requests scraped: 11000	Avg runtime: 2.28s	Total runtime: 25068.8s
+Requests scraped: 11100	Avg runtime: 2.28s	Total runtime: 25290.4s
+Requests scraped: 11200	Avg runtime: 2.28s	Total runtime: 25511.6s
+Requests scraped: 11300	Avg runtime: 2.28s	Total runtime: 25728.0s
+Requests scraped: 11400	Avg runtime: 2.28s	Total runtime: 25943.8s
+Requests scraped: 11500	Avg runtime: 2.28s	Total runtime: 26166.7s
+Requests scraped: 11600	Avg runtime: 2.27s	Total runtime: 26381.3s
+Requests scraped: 11700	Avg runtime: 2.27s	Total runtime: 26614.4s
+Requests scraped: 11800	Avg runtime: 2.27s	Total runtime: 26840.7s
+Requests scraped: 11900	Avg runtime: 2.27s	Total runtime: 27054.9s
+Requests scraped: 12000	Avg runtime: 2.27s	Total runtime: 27283.2s
+Requests scraped: 12100	Avg runtime: 2.27s	Total runtime: 27500.4s
+Requests scraped: 12200	Avg runtime: 2.27s	Total runtime: 27713.8s
+Requests scraped: 12300	Avg runtime: 2.27s	Total runtime: 27936.2s
+Requests scraped: 12400	Avg runtime: 2.27s	Total runtime: 28150.9s
+Requests scraped: 12500	Avg runtime: 2.27s	Total runtime: 28393.2s
+Requests scraped: 12600	Avg runtime: 2.27s	Total runtime: 28608.3s
+Requests scraped: 12700	Avg runtime: 2.27s	Total runtime: 28835.4s
+Requests scraped: 12800	Avg runtime: 2.27s	Total runtime: 29041.1s
+Requests scraped: 12900	Avg runtime: 2.27s	Total runtime: 29247.3s
+Requests scraped: 13000	Avg runtime: 2.27s	Total runtime: 29458.7s
+Requests scraped: 13100	Avg runtime: 2.27s	Total runtime: 29684.8s
+Requests scraped: 13200	Avg runtime: 2.27s	Total runtime: 29906.0s
+Requests scraped: 13300	Avg runtime: 2.26s	Total runtime: 30111.4s
+Requests scraped: 13400	Avg runtime: 2.26s	Total runtime: 30326.8s
+Requests scraped: 13500	Avg runtime: 2.26s	Total runtime: 30548.2s
+Requests scraped: 13600	Avg runtime: 2.26s	Total runtime: 30764.9s
+Requests scraped: 13700	Avg runtime: 2.26s	Total runtime: 30988.5s
+Requests scraped: 13800	Avg runtime: 2.26s	Total runtime: 31191.8s
+Requests scraped: 13900	Avg runtime: 2.26s	Total runtime: 31419.1s
+Requests scraped: 14000	Avg runtime: 2.26s	Total runtime: 31640.4s
+Requests scraped: 14100	Avg runtime: 2.26s	Total runtime: 31870.1s
+Requests scraped: 14200	Avg runtime: 2.26s	Total runtime: 32095.2s
+Requests scraped: 14300	Avg runtime: 2.26s	Total runtime: 32319.4s
+Requests scraped: 14400	Avg runtime: 2.26s	Total runtime: 32540.6s
+Requests scraped: 14500	Avg runtime: 2.26s	Total runtime: 32750.5s
+Requests scraped: 14600	Avg runtime: 2.26s	Total runtime: 32971.8s
+Requests scraped: 14700	Avg runtime: 2.26s	Total runtime: 33193.6s
+Requests scraped: 14800	Avg runtime: 2.26s	Total runtime: 33408.0s
+Requests scraped: 14900	Avg runtime: 2.26s	Total runtime: 33625.4s
+Requests scraped: 15000	Avg runtime: 2.26s	Total runtime: 33843.5s
+Requests scraped: 15100	Avg runtime: 2.26s	Total runtime: 34071.7s
+Requests scraped: 15200	Avg runtime: 2.26s	Total runtime: 34281.6s
+Requests scraped: 15300	Avg runtime: 2.26s	Total runtime: 34505.7s
+Requests scraped: 15400	Avg runtime: 2.25s	Total runtime: 34719.3s
+Requests scraped: 15500	Avg runtime: 2.25s	Total runtime: 34933.5s
+Requests scraped: 15600	Avg runtime: 2.25s	Total runtime: 35143.7s
+Requests scraped: 15700	Avg runtime: 2.25s	Total runtime: 35367.0s
+Requests scraped: 15800	Avg runtime: 2.25s	Total runtime: 35588.0s
+Requests scraped: 15900	Avg runtime: 2.25s	Total runtime: 35803.1s
+Requests scraped: 16000	Avg runtime: 2.25s	Total runtime: 36016.9s
+Requests scraped: 16100	Avg runtime: 2.25s	Total runtime: 36229.6s
+Requests scraped: 16200	Avg runtime: 2.25s	Total runtime: 36441.9s
+Requests scraped: 16300	Avg runtime: 2.25s	Total runtime: 36637.3s
+Requests scraped: 16400	Avg runtime: 2.25s	Total runtime: 36830.2s
+Requests scraped: 16500	Avg runtime: 2.24s	Total runtime: 37024.6s
+Requests scraped: 16600	Avg runtime: 2.24s	Total runtime: 37221.2s
+Requests scraped: 16700	Avg runtime: 2.24s	Total runtime: 37412.9s
+Total requests scraped: 16745	Avg runtime: 2.24s	Total runtime: 37498.4s
+
+Last request scraped: 22-3781
+-----------
+
+-----------
+
+Successfully converted requests into CSV
+
+End time: 2022-04-16 05:50:34.355133
+
+***
+
