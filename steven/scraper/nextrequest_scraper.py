@@ -18,10 +18,14 @@ class NextRequestScraper:
     """
 
     def __init__(self, driver, url, wait_time=0.1):
+        """
+        Constructor for NextRequestScraper
+        """
         self.driver = driver if 'webdriver' in str(type(driver)) else webdriver.Firefox()
         self.driver.implicitly_wait(wait_time)
         self.url = url if ((type(url) == str) and ('nextrequest.com' in url) and ('requests/' in url)) \
             else 'https://lacity.nextrequest.com/requests/'
+        
 
     def scrape(self, requests, earliest_id, requests_name='requests', path='data/',
                num_requests=-1, timeout=10, progress=100, debug=0, log=''):
@@ -31,7 +35,7 @@ class NextRequestScraper:
         """
         num_its = 1  # Keeps track of how many times the scraper has been (re-)run
         it_num_line = ''  # For warning suppression purposes
-        if log == -1: log = path + requests_name + '.log'  # If no directory is specified, point to this one
+        if log == -1: log = path + requests_name + '.log'  # If no directory is specified, use parameters to generate default
 
         # Initialize the current ID to be either the earliest ID possible if the requests list is empty, or the last ID
         # in the list
@@ -77,19 +81,20 @@ class NextRequestScraper:
                 log_msg('{}\n\n'.format(it_num_line), log=log)
                 break
             except NoSuchElementException:
-                log_msg('Webdriver could not find js-next-request element between scraper iterations\n{}\n\n'.format(
-                    it_num_line), log=log)
+                log_msg('Webdriver could not find js-next-request element between scraper iterations\n{}\n\n'.format(it_num_line), log=log)
+                break
+            except StaleElementReferenceException:
+                log_msg('Stale element rreferenced between scraper iterations\n{}\n\n'.format(it_num_line), log=log)
                 break
             except KeyboardInterrupt:
                 log_msg('User interruption occurred between scraper iterations\n{}\n\n'.format(it_num_line), log=log)
                 break
             except:
-                log_msg('Exception occurred between scraper iterations\n{}\n{}\n\n'.format(traceback.format_exc(),
-                                                                                           it_num_line), log=log)
+                log_msg('Exception occurred between scraper iterations\n{}\n{}\n\n'.format(traceback.format_exc(), it_num_line), log=log)
                 break
 
         convert_requests_to_csv(requests, requests_name, path=path, log=log)
-        log_msg('End time: {}\n\n***\n\n'.format(str(datetime.now())), log=log)
+        log_msg('End time: {}\n\n{}\n\n'.format(str(datetime.now()), '*'*25), log=log)
         return len(requests)
 
     def scrape_requests_sequential(self, requests, start_id, num_requests=-1, progress=0, debug=0, log=''):
@@ -128,16 +133,17 @@ class NextRequestScraper:
             except NoSuchElementException:  # Exit the loop if the js-next-request element cannot be found
                 log_msg('Webdriver could not find js-next-request element after count {}\n'.format(counter), log=log)
                 break
+            except StaleElementReferenceException:  # Same behavior as above but with stale element refereces
+                log_msg('Stale element referenced after count {}\n'.format(counter), log=log)
+                break
             except InterruptScrapeException:  # Handling for any exception thrown while a request was being scraped
                 if progress:
-                    log_msg(scraper_progress_final(counter + 1, start, end=timer(), last_request=requests[-1]['id']),
-                            log=log)
+                    log_msg(scraper_progress_final(counter + 1, start, end=timer(), last_request=requests[-1]['id']), log=log)
                 raise InterruptScrapeException
             except KeyboardInterrupt:  # Handling for any exception thrown in between scraping requests
                 log_msg('User interruption occurred after count {}\n'.format(counter), log=log)
                 if progress:
-                    log_msg(scraper_progress_final(counter + 1, start, end=timer(), last_request=requests[-1]['id']),
-                            log=log)
+                    log_msg(scraper_progress_final(counter, start, end=timer(), last_request=requests[-1]['id']), log=log)
                 raise InterruptScrapeException
             except:
                 log_msg('Exception occurred after count {}\n{}\n'.format(counter, traceback.format_exc()), log=log)
@@ -155,11 +161,13 @@ class NextRequestScraper:
         Scrapes data about a given request on a NextRequest request database, appending the result
         to the given list.
         """
-        request_id, status, desc, date, depts, req, fee, poc, events, docs = [None] * 10  # Initialize variables
-        count_err_msg = (' while scraping count {}'.format(counter + 1) if counter >= 0 else '') + '\n'
+        request_id, status, desc, date, depts, poc, events, docs = [None] * 8  # Initialize variables
+        err_msg = (' while scraping count {}'.format(counter + 1) if counter >= 0 else '') + '\n'  # Error message snippet
 
         try:  # Attempt to scrape relevant data
             request_id = self.driver.find_element(By.CLASS_NAME, 'request-title-text').text.split()[1][1:]  # Request ID
+            err_msg = (' while scraping request ID {}'.format(request_id) if counter >= 0 else '') + '\n'  # Update error message snippet to display request ID
+            
             status = self.driver.find_element(By.CLASS_NAME, 'request-status-label').text.strip()  # Request status
 
             desc_row = self.driver.find_element(By.CLASS_NAME, 'request-text')  # Box containing request description
@@ -173,7 +181,9 @@ class NextRequestScraper:
                                              'current-department').text  # Department(s) assigned to the request
             poc = self.driver.find_element(By.CLASS_NAME, 'request-detail').text  # Point of contact
 
-            # Documents attached to the request, if there are any. Currently only scrapes the first 50 or so documents
+            '''
+            Documents attached to the request, if there are any
+            '''
             doc_list = self.driver.find_element(By.CLASS_NAME, 'document-list')  # Box containing documents
             if '(none)' not in doc_list.text:  # Check for the presence of documents
                 # Expand folders, if there are any
@@ -202,53 +212,57 @@ class NextRequestScraper:
                     'link': remove_download_from_urls(get_webelement_link(docs_all))
                 }).to_csv(index=False)
 
-            # Messages recorded on the request page, if there are any
-            event_history = self.driver.find_elements(By.CLASS_NAME, 'generic-event')  # All message blocks
-            if event_history:  # Check for presence of messages
-                num_events = len(event_history)
+            '''
+            Messages recorded on the request page, if there are any
+            '''
+            event_history = self.driver.find_elements(By.CSS_SELECTOR, '.generic-event,.note-event')  # All message blocks. TODO: This isn't working, need help with getting all possible message blocks
+            num_events = len(event_history)
 
-                # Titles, descriptions, and time strings for each message
-                event_titles = [None] * num_events
-                event_items = [None] * num_events
-                time_quotes = [None] * num_events
+            # Titles, descriptions, and time strings for each message
+            event_titles = [None] * num_events
+            event_items = [None] * num_events
+            time_quotes = [None] * num_events
 
-                # Scrape information from each individual event
-                for i in range(len(event_history)):
-                    event = event_history[i]
+            # Scrape information from each individual event
+            for i in range(len(event_history)):
+                event = event_history[i]
 
-                    event_title = event.find_element(By.CLASS_NAME, 'event-title').text  # Event title
-                    for details_toggle in event.find_elements(By.PARTIAL_LINK_TEXT,
-                                                              'Details'):  # Expand event item details
-                        details_toggle.click()
-                    event_item = '\n'.join(
-                        get_webelement_text(event.find_elements(By.CLASS_NAME, 'event-item')))  # Event item
-                    time_quote = event.find_element(By.CLASS_NAME, 'time-quotes').text  # Time quote
+                event_title = event.find_element(By.CLASS_NAME, 'event-title').text  # Event title
+                for details_toggle in event.find_elements(By.PARTIAL_LINK_TEXT,
+                                                          'Details'):  # Expand event item details
+                    details_toggle.click()
+                event_item = '\n'.join(
+                    get_webelement_text(event.find_elements(By.CLASS_NAME, 'event-item')))  # Event item
+                time_quote = event.find_element(By.CLASS_NAME, 'time-quotes').text  # Time quote
 
-                    event_titles[i] = event_title
-                    event_items[i] = event_item
-                    time_quotes[i] = time_quote
+                event_titles[i] = event_title
+                event_items[i] = event_item
+                time_quotes[i] = time_quote
 
-                # DataFrame, converted to CSV, consisting of all messages
-                events = pd.DataFrame({
-                    'title': event_titles,
-                    'item': event_items,
-                    'time': time_quotes
-                }).to_csv(index=False)
+            # DataFrame, converted to CSV, consisting of all messages
+            events = pd.DataFrame({
+                'title': event_titles,
+                'item': event_items,
+                'time': time_quotes
+            }).to_csv(index=False)
 
             # For testing purposes, print a message whenever a request is successfully scraped
             if debug:
-                log_msg('{} scraped'.format(request_id), log=log)
-        except NoSuchElementException:
-            log_msg('Webdriver could not find element{}'.format(count_err_msg), log=log)
+                log_msg('{} scraped\n'.format(request_id), log=log)
+        
+        # Exception handling for the most common Selenium exceptions: print short message describing which
+        # request generated the exception, then print the stack trace
         except StaleElementReferenceException:
-            log_msg('Stale element referenced{}'.format(count_err_msg), log=log)
+            log_msg('Stale element referenced{}\n{}\n'.format(err_msg, traceback.format_exc()), log=log)
+        except NoSuchElementException:
+            log_msg('Webdriver could not find element{}\n{}\n'.format(err_msg, traceback.format_exc()), log=log)
         except TimeoutException:
-            log_msg('Webdriver timed out{}'.format(count_err_msg), log=log)
+            log_msg('Webdriver timed out{}\n{}\n'.format(err_msg, traceback.format_exc()), log=log)
         except KeyboardInterrupt:  # Raise a special exception if an interruption occurs while a request is being scraped
-            log_msg('User interruption occurred{}'.format(count_err_msg), log=log)
+            log_msg('User interruption occurred{}'.format(err_msg), log=log)
             raise InterruptScrapeException
-        except:
-            log_msg('Exception occurred{}\n{}'.format(count_err_msg, traceback.format_exc()), log=log)
+        except:  # All other unforeseen exceptions are handled here
+            log_msg('Exception occurred{}\n{}\n'.format(err_msg, traceback.format_exc()), log=log)
         finally:  # Always append the scraped request data to the list regardless of completeness
             requests.append({
                 'id': request_id,
@@ -260,8 +274,8 @@ class NextRequestScraper:
                 'poc': poc,
                 'msgs': events
             })
-
-        return 1
+        
+        return 1  # For keeping count of the number of requests scraped for other functions
 
 
 class InterruptScrapeException(Exception):

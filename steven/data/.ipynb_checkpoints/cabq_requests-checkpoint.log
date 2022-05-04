@@ -1,0 +1,352 @@
+Start time: 2022-04-18 08:39:02.470616
+
+Iteration 1
+-----------
+Starting request: 15-22
+
+Webdriver could not find element while scraping count 1
+
+Traceback (most recent call last):
+  File "/home/powerofapoint/notebooks/police-records-analysis/steven/scraper/nextrequest_scraper.py", line 168, in scrape_request
+    request_id = self.driver.find_element(By.CLASS_NAME, 'request-title-text').text.split()[1][1:]  # Request ID
+  File "/anaconda/envs/py38_default/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py", line 1248, in find_element
+    return self.execute(Command.FIND_ELEMENT, {
+  File "/anaconda/envs/py38_default/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py", line 425, in execute
+    self.error_handler.check_response(response)
+  File "/anaconda/envs/py38_default/lib/python3.8/site-packages/selenium/webdriver/remote/errorhandler.py", line 247, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: Unable to locate element: .request-title-text
+Stacktrace:
+WebDriverError@chrome://remote/content/shared/webdriver/Errors.jsm:183:5
+NoSuchElementError@chrome://remote/content/shared/webdriver/Errors.jsm:395:5
+element.find/</<@chrome://remote/content/marionette/element.js:300:16
+
+
+Webdriver could not find js-next-request element after count 1
+Total requests scraped: 1	Avg runtime: 0.31s	Total runtime: 0.3s
+
+Last request scraped: None
+-----------
+
+Exception occurred between scraper iterations
+Traceback (most recent call last):
+  File "/home/powerofapoint/notebooks/police-records-analysis/steven/scraper/nextrequest_scraper.py", line 74, in scrape
+    self.driver.get(self.url + current_id)  # Get the request URL
+TypeError: can only concatenate str (not "NoneType") to str
+
+-----------
+
+Successfully converted requests into CSV
+
+End time: 2022-04-18 08:39:07.794818
+
+*************************
+
+Start time: 2022-04-18 08:40:32.183952
+
+Iteration 1
+-----------
+Starting request: 15-22
+
+Webdriver could not find element while scraping count 1
+
+Traceback (most recent call last):
+  File "/home/powerofapoint/notebooks/police-records-analysis/steven/scraper/nextrequest_scraper.py", line 168, in scrape_request
+    request_id = self.driver.find_element(By.CLASS_NAME, 'request-title-text').text.split()[1][1:]  # Request ID
+  File "/anaconda/envs/py38_default/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py", line 1248, in find_element
+    return self.execute(Command.FIND_ELEMENT, {
+  File "/anaconda/envs/py38_default/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py", line 425, in execute
+    self.error_handler.check_response(response)
+  File "/anaconda/envs/py38_default/lib/python3.8/site-packages/selenium/webdriver/remote/errorhandler.py", line 247, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: Unable to locate element: .request-title-text
+Stacktrace:
+WebDriverError@chrome://remote/content/shared/webdriver/Errors.jsm:183:5
+NoSuchElementError@chrome://remote/content/shared/webdriver/Errors.jsm:395:5
+element.find/</<@chrome://remote/content/marionette/element.js:300:16
+
+
+Webdriver could not find js-next-request element after count 1
+Total requests scraped: 1	Avg runtime: 0.26s	Total runtime: 0.3s
+
+Last request scraped: None
+-----------
+
+Exception occurred between scraper iterations
+Traceback (most recent call last):
+  File "/home/powerofapoint/notebooks/police-records-analysis/steven/scraper/nextrequest_scraper.py", line 74, in scrape
+    self.driver.get(self.url + current_id)  # Get the request URL
+TypeError: can only concatenate str (not "NoneType") to str
+
+-----------
+
+Successfully converted requests into CSV
+
+End time: 2022-04-18 08:40:37.445962
+
+*************************
+
+Start time: 2022-04-18 08:43:16.201420
+
+Iteration 1
+-----------
+Starting request: 15-22
+
+Webdriver could not find element while scraping count 1
+
+Traceback (most recent call last):
+  File "/home/powerofapoint/notebooks/police-records-analysis/steven/scraper/nextrequest_scraper.py", line 168, in scrape_request
+    request_id = self.driver.find_element(By.CLASS_NAME, 'request-title-text').text.split()[1][1:]  # Request ID
+  File "/anaconda/envs/py38_pytorch/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py", line 1248, in find_element
+    return self.execute(Command.FIND_ELEMENT, {
+  File "/anaconda/envs/py38_pytorch/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py", line 425, in execute
+    self.error_handler.check_response(response)
+  File "/anaconda/envs/py38_pytorch/lib/python3.8/site-packages/selenium/webdriver/remote/errorhandler.py", line 247, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: Unable to locate element: .request-title-text
+Stacktrace:
+WebDriverError@chrome://remote/content/shared/webdriver/Errors.jsm:183:5
+NoSuchElementError@chrome://remote/content/shared/webdriver/Errors.jsm:395:5
+element.find/</<@chrome://remote/content/marionette/element.js:300:16
+
+
+Webdriver could not find js-next-request element after count 1
+Total requests scraped: 1	Avg runtime: 0.27s	Total runtime: 0.3s
+
+Last request scraped: None
+-----------
+
+Exception occurred between scraper iterations
+Traceback (most recent call last):
+  File "/home/powerofapoint/notebooks/police-records-analysis/steven/scraper/nextrequest_scraper.py", line 74, in scrape
+    self.driver.get(self.url + current_id)  # Get the request URL
+TypeError: can only concatenate str (not "NoneType") to str
+
+-----------
+
+Successfully converted requests into CSV
+
+End time: 2022-04-18 08:43:21.491137
+
+*************************
+
+Start time: 2022-04-18 08:46:31.466567
+
+Iteration 1
+-----------
+Starting request: 15-24
+
+Webdriver could not find element while scraping count 1
+
+Traceback (most recent call last):
+  File "/home/powerofapoint/notebooks/police-records-analysis/steven/scraper/nextrequest_scraper.py", line 168, in scrape_request
+    request_id = self.driver.find_element(By.CLASS_NAME, 'request-title-text').text.split()[1][1:]  # Request ID
+  File "/anaconda/envs/py38_pytorch/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py", line 1248, in find_element
+    return self.execute(Command.FIND_ELEMENT, {
+  File "/anaconda/envs/py38_pytorch/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py", line 425, in execute
+    self.error_handler.check_response(response)
+  File "/anaconda/envs/py38_pytorch/lib/python3.8/site-packages/selenium/webdriver/remote/errorhandler.py", line 247, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: Unable to locate element: .request-title-text
+Stacktrace:
+WebDriverError@chrome://remote/content/shared/webdriver/Errors.jsm:183:5
+NoSuchElementError@chrome://remote/content/shared/webdriver/Errors.jsm:395:5
+element.find/</<@chrome://remote/content/marionette/element.js:300:16
+
+
+Webdriver could not find js-next-request element after count 1
+Total requests scraped: 1	Avg runtime: 0.32s	Total runtime: 0.3s
+
+Last request scraped: None
+-----------
+
+Exception occurred between scraper iterations
+Traceback (most recent call last):
+  File "/home/powerofapoint/notebooks/police-records-analysis/steven/scraper/nextrequest_scraper.py", line 74, in scrape
+    self.driver.get(self.url + current_id)  # Get the request URL
+TypeError: can only concatenate str (not "NoneType") to str
+
+-----------
+
+Successfully converted requests into CSV
+
+End time: 2022-04-18 08:46:36.797650
+
+*************************
+
+Start time: 2022-04-18 08:49:22.630070
+
+Iteration 1
+-----------
+Starting request: 15-22
+
+Webdriver could not find element while scraping count 1
+
+Traceback (most recent call last):
+  File "/home/powerofapoint/notebooks/police-records-analysis/steven/scraper/nextrequest_scraper.py", line 168, in scrape_request
+    request_id = self.driver.find_element(By.CLASS_NAME, 'request-title-text').text.split()[1][1:]  # Request ID
+  File "/anaconda/envs/py38_pytorch/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py", line 1248, in find_element
+    return self.execute(Command.FIND_ELEMENT, {
+  File "/anaconda/envs/py38_pytorch/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py", line 425, in execute
+    self.error_handler.check_response(response)
+  File "/anaconda/envs/py38_pytorch/lib/python3.8/site-packages/selenium/webdriver/remote/errorhandler.py", line 247, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: Unable to locate element: .request-title-text
+Stacktrace:
+WebDriverError@chrome://remote/content/shared/webdriver/Errors.jsm:183:5
+NoSuchElementError@chrome://remote/content/shared/webdriver/Errors.jsm:395:5
+element.find/</<@chrome://remote/content/marionette/element.js:300:16
+
+
+Webdriver could not find js-next-request element after count 1
+Total requests scraped: 1	Avg runtime: 0.51s	Total runtime: 0.5s
+
+Last request scraped: None
+-----------
+
+Exception occurred between scraper iterations
+Traceback (most recent call last):
+  File "/home/powerofapoint/notebooks/police-records-analysis/steven/scraper/nextrequest_scraper.py", line 74, in scrape
+    self.driver.get(self.url + current_id)  # Get the request URL
+TypeError: can only concatenate str (not "NoneType") to str
+
+-----------
+
+Successfully converted requests into CSV
+
+End time: 2022-04-18 08:49:28.141324
+
+*************************
+
+Start time: 2022-04-18 08:49:52.717556
+
+Iteration 1
+-----------
+Starting request: 15-22
+
+Webdriver could not find element while scraping count 1
+
+Traceback (most recent call last):
+  File "/home/powerofapoint/notebooks/police-records-analysis/steven/scraper/nextrequest_scraper.py", line 168, in scrape_request
+    request_id = self.driver.find_element(By.CLASS_NAME, 'request-title-text').text.split()[1][1:]  # Request ID
+  File "/anaconda/envs/py38_pytorch/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py", line 1248, in find_element
+    return self.execute(Command.FIND_ELEMENT, {
+  File "/anaconda/envs/py38_pytorch/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py", line 425, in execute
+    self.error_handler.check_response(response)
+  File "/anaconda/envs/py38_pytorch/lib/python3.8/site-packages/selenium/webdriver/remote/errorhandler.py", line 247, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: Unable to locate element: .request-title-text
+Stacktrace:
+WebDriverError@chrome://remote/content/shared/webdriver/Errors.jsm:183:5
+NoSuchElementError@chrome://remote/content/shared/webdriver/Errors.jsm:395:5
+element.find/</<@chrome://remote/content/marionette/element.js:300:16
+
+
+Webdriver could not find js-next-request element after count 1
+Total requests scraped: 1	Avg runtime: 1.04s	Total runtime: 1.0s
+
+Last request scraped: None
+-----------
+
+Exception occurred between scraper iterations
+Traceback (most recent call last):
+  File "/home/powerofapoint/notebooks/police-records-analysis/steven/scraper/nextrequest_scraper.py", line 74, in scrape
+    self.driver.get(self.url + current_id)  # Get the request URL
+TypeError: can only concatenate str (not "NoneType") to str
+
+-----------
+
+Successfully converted requests into CSV
+
+End time: 2022-04-18 08:49:58.768903
+
+*************************
+
+Start time: 2022-04-18 08:50:16.742421
+
+Iteration 1
+-----------
+Starting request: 15-22
+
+Webdriver could not find element while scraping count 1
+
+Traceback (most recent call last):
+  File "/home/powerofapoint/notebooks/police-records-analysis/steven/scraper/nextrequest_scraper.py", line 168, in scrape_request
+    request_id = self.driver.find_element(By.CLASS_NAME, 'request-title-text').text.split()[1][1:]  # Request ID
+  File "/anaconda/envs/py38_pytorch/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py", line 1248, in find_element
+    return self.execute(Command.FIND_ELEMENT, {
+  File "/anaconda/envs/py38_pytorch/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py", line 425, in execute
+    self.error_handler.check_response(response)
+  File "/anaconda/envs/py38_pytorch/lib/python3.8/site-packages/selenium/webdriver/remote/errorhandler.py", line 247, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: Unable to locate element: .request-title-text
+Stacktrace:
+WebDriverError@chrome://remote/content/shared/webdriver/Errors.jsm:183:5
+NoSuchElementError@chrome://remote/content/shared/webdriver/Errors.jsm:395:5
+element.find/</<@chrome://remote/content/marionette/element.js:300:16
+
+
+Webdriver could not find js-next-request element after count 1
+Total requests scraped: 1	Avg runtime: 10.06s	Total runtime: 10.1s
+
+Last request scraped: None
+-----------
+
+Exception occurred between scraper iterations
+Traceback (most recent call last):
+  File "/home/powerofapoint/notebooks/police-records-analysis/steven/scraper/nextrequest_scraper.py", line 74, in scrape
+    self.driver.get(self.url + current_id)  # Get the request URL
+TypeError: can only concatenate str (not "NoneType") to str
+
+-----------
+
+Successfully converted requests into CSV
+
+End time: 2022-04-18 08:50:31.805423
+
+*************************
+
+Start time: 2022-04-18 08:55:09.836060
+
+Iteration 1
+-----------
+Starting request: 15-22
+
+Webdriver could not find element while scraping count 1
+
+Traceback (most recent call last):
+  File "/home/powerofapoint/notebooks/police-records-analysis/steven/scraper/nextrequest_scraper.py", line 168, in scrape_request
+    request_id = self.driver.find_element(By.CLASS_NAME, 'request-title-text').text.split()[1][1:]  # Request ID
+  File "/anaconda/envs/py38_pytorch/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py", line 1248, in find_element
+    return self.execute(Command.FIND_ELEMENT, {
+  File "/anaconda/envs/py38_pytorch/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py", line 425, in execute
+    self.error_handler.check_response(response)
+  File "/anaconda/envs/py38_pytorch/lib/python3.8/site-packages/selenium/webdriver/remote/errorhandler.py", line 247, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: Unable to locate element: .request-title-text
+Stacktrace:
+WebDriverError@chrome://remote/content/shared/webdriver/Errors.jsm:183:5
+NoSuchElementError@chrome://remote/content/shared/webdriver/Errors.jsm:395:5
+element.find/</<@chrome://remote/content/marionette/element.js:300:16
+
+
+Webdriver could not find js-next-request element after count 1
+Total requests scraped: 1	Avg runtime: 10.05s	Total runtime: 10.1s
+
+Last request scraped: None
+-----------
+
+Exception occurred between scraper iterations
+Traceback (most recent call last):
+  File "/home/powerofapoint/notebooks/police-records-analysis/steven/scraper/nextrequest_scraper.py", line 74, in scrape
+    self.driver.get(self.url + current_id)  # Get the request URL
+TypeError: can only concatenate str (not "NoneType") to str
+
+-----------
+
+Successfully converted requests into CSV
+
+End time: 2022-04-18 08:55:24.905607
+
+*************************
+

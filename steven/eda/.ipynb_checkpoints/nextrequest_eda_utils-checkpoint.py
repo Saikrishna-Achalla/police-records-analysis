@@ -7,7 +7,7 @@ from io import StringIO
 
 def nextrequest_df_clean(df, debug=False):
     """
-    Prepare a DataFrame of NextRequest requests for pandas-based EDA
+    Prepare a DataFrame of NextRequest requests for pEDA
     """
     # Fill NA values
     df = df_fillna(df)
@@ -21,7 +21,7 @@ def nextrequest_df_clean(df, debug=False):
     
     # Convert msgs CSV column into msgs_df DataFrame column
     df['msgs_df'] = df['msgs'].apply(
-            lambda csv: df_fillna(csv_to_df(csv))
+            lambda csv: remove_empty_df(df_fillna(csv_to_df(csv)))
         )
     if debug: print('msgs_df complete')
 
@@ -49,7 +49,7 @@ def csv_to_df(csv):
 
 def df_fillna(df):
     """
-    Fill empty value with a blank string, then inferentially convert column data types
+    Inferentially convert column data types, then fill empty values with a blank string
     """
     return df.convert_dtypes().fillna('') if (df is not None) else None
 
@@ -65,7 +65,8 @@ def extract_time(df, col='time', on=' by ', re=False, pattern=''):
     """
     Extract time strings from a column of a NextRequest DataFrame. Can use either splitting on a string or regex extraction
     """
-    # TODO: '[DATE] in person' is causing problems, find a simple way to extract the date from that. Maybe try regex?
+    if df is None: return None
+
     if re:
         df_extract = df[col].str.extract(pattern)
     else:
@@ -77,13 +78,14 @@ def extract_time(df, col='time', on=' by ', re=False, pattern=''):
                 columns=col
             ).rename(
                 columns={0: col, 1: on.strip()}
-            )) if (df is not None) else None
+            ))
 
 
 def convert_time_to_dt(df, col='date'):
     """
     Convert a column of time strings into datetime
     """
+    if df is None: return None
     return df.assign(**{col + '_dt': pd.to_datetime(df[col])})
 
 
